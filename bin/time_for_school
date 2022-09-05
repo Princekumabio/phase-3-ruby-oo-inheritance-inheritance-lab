@@ -4,6 +4,14 @@ require_relative "../lib/user"
 require_relative "../lib/teacher"
 require_relative "../lib/student"
 
+jim = User.new
+jim.first_name = "Jim"
+jim.last_name = "Pay"
+
+mark = Student.new
+mark.first_name = "mark"
+mark.last_name = "smith"
+
 steve = Student.new
 steve.first_name = "Steve"
 steve.last_name = "Jobs"
@@ -12,9 +20,13 @@ avi = Teacher.new
 avi.first_name = "Avi"
 avi.last_name = "Flombaum"
 
-
+mark_knowledge = avi.teach
 some_knowledge = avi.teach 
 
+
+mark.learn(mark_knowledge)
 steve.learn(some_knowledge)
 
 puts "Steve just learned this important knowledge: '#{steve.knowledge.first}' from Avi"
+
+puts "#{avi.last_name} taught #{mark.last_name} some important knowledge: #{avi.last_name} taught #{mark.knowledge.first}"
